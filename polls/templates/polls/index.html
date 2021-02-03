@@ -1,0 +1,9 @@
+{% if ultimas_questoes %}
+    <ul>
+    {% for question in ultimas_questoes %}
+        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
