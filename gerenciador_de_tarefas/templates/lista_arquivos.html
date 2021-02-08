@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <title>Gerenciador de Tarefas</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1>Listagem de arquivos</h1>
+            </div>
+            <div class="row">
+                {% if lista %}
+                 
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Data de modificação</th>
+                        <th scope="col">Data de acesso</th>
+                        <th scope="col">Tamanho</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in lista %}
+                        <tr>
+                            <td>{{item.nome}}</td>
+                            <td>{{item.mtime}}</td>
+                            <td>{{item.atime}}</td>
+                            <td>{{item.tamanho}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                    
+                {% else %}
+                    <p>Não tem arquivos nesta pasta.</p>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

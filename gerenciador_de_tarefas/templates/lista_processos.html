@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <title>Gerenciador de Tarefas</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1>Listagem de Processos</h1>
+            </div>
+            <div class="row">
+                {% if processos %}
+                 
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">cpu_times</th>
+                        <th scope="col">RSS</th>    
+                        <th scope="col">VMS</th>    
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for processo in processos %}
+                        <tr>
+                            <td><a href="{% url 'processo' processo.pid %}">{{ processo.name }}</a></td>
+                            <td>{{ processo.status }}</td>
+                            <td>{{ processo.cpu_times.user }}</td>
+                            <td>{{ processo.memory_info.rss }}</td>
+                            <td>{{ processo.memory_info.vms }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    </table>
+                    
+                {% else %}
+                    <p>Não tem processos para exibir.</p>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

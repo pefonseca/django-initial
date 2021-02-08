@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <title>Gerenciador de Tarefas</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1>Processo {{ processo.pid }}</h1>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Nome
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ processo.name }}</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Status
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ processo.status }}</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    cpu_times
+                </div>
+                <div class="card-body">
+                    <p class="card-text">cpu_times.user: {{ processo.cpu_times.user }}</p>
+                    <p class="card-text">cpu_times.system: {{ processo.cpu_times.system }}</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
